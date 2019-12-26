@@ -2,6 +2,7 @@
   <v-app>
     <v-app-bar
       app
+      flat
       color="primary"
       dark
     >
@@ -38,19 +39,19 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <WelcomePage/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import WelcomePage from './components/WelcomePage';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    WelcomePage,
   },
 
   data: () => ({
