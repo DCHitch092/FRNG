@@ -42,18 +42,18 @@
               <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
         </v-card-text>
         </v-card >
-        <v-card
-        >
 
+        <!-- <v-card
+        >
         <p class="subheading font-weight-regular">
         IF YOU WNATED
           <br>please join our online
           <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
         </p>
-        </v-card >
+        </v-card > -->
       </v-flex>
 
-      <v-flex
+      <!-- <v-flex
         mb-5
         xs12
       >
@@ -70,9 +70,9 @@
             {{ next.text }}
           </a>
         </v-layout>
-      </v-flex>
+      </v-flex> -->
 
-      <v-flex
+      <!-- <v-flex
         xs12
         mb-5
       >
@@ -108,7 +108,7 @@
             {{ eco.text }}
           </a>
         </v-layout>
-      </v-flex>
+      </v-flex> -->
     </v-layout>
   </v-container>
 </template>

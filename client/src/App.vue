@@ -29,6 +29,24 @@
 
       <v-spacer></v-spacer>
 
+      <v-btn
+      href="#home"
+      text
+      disabled
+      color="reply orange"
+      >
+      <span class="mr-2">Home</span>
+      </v-btn>
+
+      <v-btn
+      href="#account"
+      disabled
+      text
+      color="reply orange"
+      >
+      <span class="mr-2">Account</span>
+      </v-btn>
+
       <!-- <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
@@ -58,5 +76,11 @@ export default {
   data: () => ({
     //
   }),
+
+  mounted(){
+  fetch("http://localhost:3000/")
+    .then(response => response.json())
+    .then(json => console.log(json));
+  }
 };
 </script>
