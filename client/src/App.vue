@@ -5,16 +5,24 @@
       flat
       color="amber"
       dark
+      src="/frng-bar-bg.png"
+      prominent
     >
-
+    <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(255, 191, 0, 0.4), rgba(255, 191, 0, 0.8)"
+        ></v-img>
+      </template>
       <div class="d-flex align-center">
         <v-img
           alt="FRNG Logo"
-          class="shrink mr-2"
+          class="shrink mr-2 ml-2"
           contain
-          src="/FRNG_logo.svg"
+          src="/fring_coin_logo_FR_NG.svg"
           transition="scale-transition"
-          width="120"
+          width="220"
+          min-width="100"
         />
 
         <!-- <v-img
@@ -58,29 +66,32 @@
     </v-app-bar>
 
     <v-content>
-      <WelcomePage/>
+      <WelcomePage :shows="shows"/>
     </v-content>
+    <footer-links />
   </v-app>
 </template>
 
 <script>
 import WelcomePage from './components/WelcomePage';
+import FooterLinks from './components/FooterLinks';
 
 export default {
   name: 'App',
 
   components: {
     WelcomePage,
+    'footer-links': FooterLinks
   },
 
   data: () => ({
+    // users: [],
+    // coins: [],
+    // variables: [],
+    // experiments: []
     //
-  }),
+  })
 
-  mounted(){
-  fetch("http://localhost:3000/")
-    .then(response => response.json())
-    .then(json => console.log(json));
-  }
+
 };
 </script>

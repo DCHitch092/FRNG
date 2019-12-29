@@ -12,162 +12,97 @@
           height="200"
         ></v-img>
       </v-flex> -->
-
       <v-flex mb-4 pa-4>
         <h1 class="display-2 font-weight-bold mb-2">
-          Welcome to Fringe Coin
+          Setting the Stage For Fringe Coin
         </h1>
-      </v-flex>
+        <p>On this page you can set up an experiment and try out a model for how fringe coin might work!</p>
 
-      <v-flex ma-4 pa-4
-        d-flex
-      >
-        <v-card >
-          <v-card-title
-          ma-2>£0.00</v-card-title>
-          <v-card-subtitle>Account Total</v-card-subtitle>
-          <v-card-text>This is the amount deposited by you into your account.</v-card-text>
-          <v-card-actions><a href="#account">View Account</a></v-card-actions>
-        </v-card>
-
-        <v-card
-          ma-2
-          pa-6
-          color="success"
-          disabled
+        <v-flex
+        class="d-flex justify-center align-center flex-wrap"
         >
-          <v-card-title>
-          Global Info </v-card-title>
-          <v-card-text>This is where a graph expressing some sort of global information of the coin would be displayed.
-              <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </v-card-text>
-        </v-card >
+          <h3 class="experiment_option_display"><v-icon x-small color="white">mdi-CurrencyUsd</v-icon>£{{variables.coin_buy}}</h3>
+          <h3 class="experiment_option_display">£{{variables.start_value}}</h3>
+          <h3 class="experiment_option_display">{{ variables.deposit_cost }}</h3>
 
-        <!-- <v-card
-        >
-        <p class="subheading font-weight-regular">
-        IF YOU WNATED
-          <br>please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
-        </v-card > -->
+
+        <h3 class="experiment_option_display">£{{variables.decay_rate}}</h3>
+            <h3 class="experiment_option_display">£{{variables.access_info_cost}}</h3>
+            <h3 class="experiment_option_display">£{{variables.advert_cost}}</h3>
+            <h3 class="experiment_option_display">£{{variables.advert_plus_cost}}</h3>
+            <h3 class="experiment_option_display">{{variables.total_days}}</h3>
+
+        </v-flex>
       </v-flex>
 
-      <!-- <v-flex
-        mb-5
-        xs12
-      >
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
+      <v-expansion-panels
+      v-model="panel"
+      focusable
+      multiple
+    >
+    <experiment-options :variables="variables" />
+    <experiment-shows />
+    </v-expansion-panels>
 
-        <v-layout justify-center>
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-layout>
-      </v-flex> -->
-
-      <!-- <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-layout>
-      </v-flex> -->
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import ExperimentOptions from './ExperimentOptions.vue';
+import ExperimentShows from './ExperimentShows.vue';
+import { eventBus } from '../main.js'
+
 export default {
   name: 'WelcomePage',
 
-  data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com',
-      },
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer',
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-      },
-    ],
-  }),
+  props: ['shows'],
+
+  data(){
+    return {
+      variables: {
+    name: 'default',
+    coin_buy: 5,
+    start_value: 5,
+    decay_rate: 0.1,
+    access_info_cost: 0.1,
+    deposit_cost:0.2,
+    advert_cost:0.3,
+    advert_plus_cost: 10,
+    total_days: 26,
+    review_system: false
+      }
+    }
+  },
+
+  components:{
+    'experiment-options': ExperimentOptions,
+    'experiment-shows': ExperimentShows
+  },
+
+  computed(){
+    return{
+
+    }
+  }
+
+
 };
 </script>
+
+<style lang="css" scoped>
+.experiment_option_display{
+  min-height: 4em;
+  height: 4em;
+  margin: 0.5em;
+  min-width: 4em;
+  width: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+  background-color: #fbc02d;
+  border-radius: 50%;
+  color: white;
+}
+</style>
