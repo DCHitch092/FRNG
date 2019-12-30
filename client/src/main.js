@@ -8,12 +8,15 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 
+import WelcomePage from './components/WelcomePage';
+import AddShow from './components/AddShow';
+
 const VariablesSetUp = { template: '<div>foo</div>' }
 const Bar = { template: '<div>bar</div>' }
 
 const routes = [
-  { path: '/', component: VariablesSetUp },
-  { path: '/bar', component: Bar }
+  {      path: '/',      name: 'home',      component: WelcomePage    },
+  {      path: '/add-show',      name: 'add-show',      component: AddShow    },
 ]
 
 const router = new VueRouter({

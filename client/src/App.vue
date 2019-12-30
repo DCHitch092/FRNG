@@ -8,10 +8,10 @@
       src="/frng-bar-bg.png"
     >
     <template v-slot:img="{ props }">
-        <v-img
+        <router-link to="/"><v-img
           v-bind="props"
           gradient="to top right, rgba(255, 191, 0, 0.4), rgba(255, 191, 0, 0.8)"
-        ></v-img>
+        ></v-img></router-link>
       </template>
       <div class="d-flex align-center">
         <v-img
@@ -39,7 +39,6 @@
       <!-- <router-link to="/foo">Go to Foo</router-link>
       <router-link to="/bar">Go to Bar</router-link> -->
       <v-btn
-      href="#home"
       text
       color="reply orange"
       >
@@ -47,12 +46,12 @@
       </v-btn>
 
       <v-btn
-      href="#account"
+
       text
       color="reply orange"
       >
       <span class="mr-2">
-      <router-link to="/account">account</router-link></span>
+      <router-link to="/add-show">add Show</router-link></span>
       </v-btn>
 
       <!-- <v-btn
@@ -68,7 +67,7 @@
     <v-content>
 
       <router-view />
-      <WelcomePage />
+      <!-- <WelcomePage /> -->
     </v-content>
     <footer-links />
   </v-app>

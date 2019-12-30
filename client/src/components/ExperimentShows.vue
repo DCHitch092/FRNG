@@ -1,7 +1,7 @@
 <template lang="html">
   <v-expansion-panel>
     <v-expansion-panel-header
-    class="mb-2"
+
     color="amber darken-1"><h2>Shows</h2></v-expansion-panel-header>
     <v-expansion-panel-content>
   <v-data-iterator
