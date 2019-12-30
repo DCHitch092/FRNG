@@ -6,12 +6,11 @@
       absolute
     >
     <v-flex
-      xs12
-      mb-5
-      class="d-flex flex-rows"
+      mb-4
+      class="d-flex flex-rows flex-start mt-2"
     >
 
-      <v-layout class="d-flex flex-column justify-center align-center">
+      <v-layout class="d-flex flex-column align-center">
         <h4 class="font-weight-bold mb-3">What's next?</h4>
         <a
           v-for="(next, i) in whatsNext"
@@ -22,7 +21,7 @@
         >{{ next.text }}</a>
       </v-layout>
 
-      <v-layout class="d-flex flex-column justify-center align-center">
+      <v-layout class="d-flex flex-column align-center">
         <h4 class="font-weight-bold mb-3">Important Links</h4>
           <a
             v-for="(link, i) in importantLinks"
@@ -33,7 +32,7 @@
           >{{ link.text }}</a>
       </v-layout>
 
-      <v-layout class="d-flex flex-column justify-center align-center">
+      <v-layout class="d-flex flex-column align-center">
         <h4 class="font-weight-bold mb-3">FRNG Model Tools</h4>
           <a
             v-for="(model, i) in modelSetUp"

@@ -43,7 +43,7 @@
       text
       color="reply orange"
       >
-      <span class="mr-2"><router-link to="/foo">Home</router-link></span>
+      <span class="mr-2"><router-link to="/">Home</router-link></span>
       </v-btn>
 
       <v-btn
@@ -52,7 +52,7 @@
       color="reply orange"
       >
       <span class="mr-2">
-      <router-link to="/bar">Go to Bar</router-link></span>
+      <router-link to="/account">account</router-link></span>
       </v-btn>
 
       <!-- <v-btn
