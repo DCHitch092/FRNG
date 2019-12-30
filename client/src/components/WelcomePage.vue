@@ -45,7 +45,7 @@ export default {
   data(){
     return {
       variables: {
-    name: 'default',
+    name: 'type a name here',
     coin_buy: 5,
     start_value: 5,
     decay_rate: 0.1,

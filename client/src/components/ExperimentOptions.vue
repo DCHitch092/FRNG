@@ -53,20 +53,20 @@
               v-model="variables.access_info_cost"
               label="Cost per Data Access"
               min="0" max="4"
-              hint="how much, in fring, should it cost for a show to be able to access basic information about one of their audience members who gave them a coin? e.g. an email address, facebook username or twitter handle (freely given for this purpose by the audience member)"
+              hint="how much, in frng, should it cost for a show to be able to access basic information about one of their audience members who gave them a coin? e.g. an email address, facebook username or twitter handle (freely given for this purpose by the audience member)"
               step="0.1">
             </v-slider>
 
             <v-slider v-model="variables.advert_cost"
             label="Advert Cost"
             min="0" max="10"
-            hint="how much, in fring, should it cost for a small piece of advertising e.g. a newsletter?"
+            hint="how much, in frng, should it cost for a small piece of advertising e.g. a newsletter?"
             step="0.5"></v-slider>
 
             <v-slider v-model="variables.advert_plus_cost"
             label="Mass Advert Cost"
             min="0" max="100"
-            hint="how much, in fring, should it cost for a large piece of advertising e.g. across website video?"
+            hint="how much, in frng, should it cost for a large piece of advertising e.g. across website video?"
             step="1"></v-slider>
 
 
@@ -135,7 +135,7 @@ export default {
 		},
 
     setRandom: function(){
-      this.variables.name = 'random_' + Math.random().toString(36).substring(3),
+      this.variables.name = 'random_' + Math.random().toString(16).substring(7),
       this.variables.coin_buy = Math.random() * (21),
       this.variables.start_value = Math.random() * (21),
       this.variables.deposit_cost =  Math.random() * (5),

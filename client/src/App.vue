@@ -36,22 +36,23 @@
 
       <v-spacer></v-spacer>
 
+      <!-- <router-link to="/foo">Go to Foo</router-link>
+      <router-link to="/bar">Go to Bar</router-link> -->
       <v-btn
       href="#home"
       text
-      disabled
       color="reply orange"
       >
-      <span class="mr-2">Home</span>
+      <span class="mr-2"><router-link to="/foo">Home</router-link></span>
       </v-btn>
 
       <v-btn
       href="#account"
-      disabled
       text
       color="reply orange"
       >
-      <span class="mr-2">Account</span>
+      <span class="mr-2">
+      <router-link to="/bar">Go to Bar</router-link></span>
       </v-btn>
 
       <!-- <v-btn
@@ -65,6 +66,8 @@
     </v-app-bar>
 
     <v-content>
+
+      <router-view />
       <WelcomePage />
     </v-content>
     <footer-links />
