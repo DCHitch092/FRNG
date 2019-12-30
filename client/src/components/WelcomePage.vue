@@ -13,30 +13,15 @@
         ></v-img>
       </v-flex> -->
       <v-flex mb-4 pa-4>
-        <h1 class="display-2 font-weight-bold mb-2">
+        <h1 class="mb-2">
           Setting the Stage For Fringe Coin
         </h1>
         <p>On this page you can set up an experiment and try out a model for how fringe coin might work!</p>
 
-        <v-flex
-        class="d-flex justify-center align-center flex-wrap"
-        >
-          <h3 class="experiment_option_display"><v-icon x-small color="white">mdi-CurrencyUsd</v-icon>£{{variables.coin_buy}}</h3>
-          <h3 class="experiment_option_display">£{{variables.start_value}}</h3>
-          <h3 class="experiment_option_display">{{ variables.deposit_cost }}</h3>
-
-
-        <h3 class="experiment_option_display">£{{variables.decay_rate}}</h3>
-            <h3 class="experiment_option_display">£{{variables.access_info_cost}}</h3>
-            <h3 class="experiment_option_display">£{{variables.advert_cost}}</h3>
-            <h3 class="experiment_option_display">£{{variables.advert_plus_cost}}</h3>
-            <h3 class="experiment_option_display">{{variables.total_days}}</h3>
-
-        </v-flex>
+        <display-variables :variables="variables" />
       </v-flex>
 
       <v-expansion-panels
-      v-model="panel"
       focusable
       multiple
     >
@@ -51,12 +36,11 @@
 <script>
 import ExperimentOptions from './ExperimentOptions.vue';
 import ExperimentShows from './ExperimentShows.vue';
+import DisplayVariables from './DisplayVariables.vue';
 import { eventBus } from '../main.js'
 
 export default {
   name: 'WelcomePage',
-
-  props: ['shows'],
 
   data(){
     return {
@@ -77,32 +61,13 @@ export default {
 
   components:{
     'experiment-options': ExperimentOptions,
-    'experiment-shows': ExperimentShows
-  },
-
-  computed(){
-    return{
-
-    }
+    'experiment-shows': ExperimentShows,
+    'display-variables': DisplayVariables
   }
-
 
 };
 </script>
 
 <style lang="css" scoped>
-.experiment_option_display{
-  min-height: 4em;
-  height: 4em;
-  margin: 0.5em;
-  min-width: 4em;
-  width: 4em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* text-align: center; */
-  background-color: #fbc02d;
-  border-radius: 50%;
-  color: white;
-}
+
 </style>

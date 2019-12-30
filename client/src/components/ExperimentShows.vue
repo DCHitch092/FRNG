@@ -2,7 +2,7 @@
   <v-expansion-panel>
     <v-expansion-panel-header
     class="mb-2"
-    color="amber darken-1">Shows</v-expansion-panel-header>
+    color="amber darken-1"><h2>Shows</h2></v-expansion-panel-header>
     <v-expansion-panel-content>
   <v-data-iterator
   :items="shows"
@@ -19,7 +19,7 @@
         lg="3"
       >
         <v-card>
-          <v-card-title class="subheading font-weight-bold">{{ show.title }}</v-card-title>
+          <v-card-title class=""><h3>{{ show.title }}</h3></v-card-title>
 
           <v-divider></v-divider>
 
@@ -30,19 +30,19 @@
             </v-list-item> -->
 
             <v-list-item>
-              <v-list-item-content>Coins:</v-list-item-content>
-              <v-list-item-content class="align-end">{{ show.coins.length }}</v-list-item-content>
+              <v-list-item-content><p>Coins:</p></v-list-item-content>
+              <v-list-item-content class="align-end"><p>{{ show.coins.length }}</p></v-list-item-content>
             </v-list-item>
 
             <v-list-item>
-              <v-list-item-content>Contributors:</v-list-item-content>
-              <v-list-item-content class="align-end">{{ show.contributors.length }}</v-list-item-content>
+              <v-list-item-content><p>Contributors:</p></v-list-item-content>
+              <v-list-item-content class="align-end"><p>{{ show.contributors.length }}</p></v-list-item-content>
             </v-list-item>
 
           </v-list>
           <v-fade-transition>
           <v-overlay
-            v-if="hover"
+
             absolute
             color="#036358"
           >
@@ -62,6 +62,7 @@
 <script>
 export default {
   name: 'experiment-shows',
+  
   data(){
     return{
     shows:[]}

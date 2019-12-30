@@ -6,7 +6,6 @@
       color="amber"
       dark
       src="/frng-bar-bg.png"
-      prominent
     >
     <template v-slot:img="{ props }">
         <v-img
@@ -66,7 +65,7 @@
     </v-app-bar>
 
     <v-content>
-      <WelcomePage :shows="shows"/>
+      <WelcomePage />
     </v-content>
     <footer-links />
   </v-app>
@@ -95,3 +94,7 @@ export default {
 
 };
 </script>
+<style>
+
+
+</style>
