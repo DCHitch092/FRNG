@@ -18,18 +18,21 @@ MongoClient.connect('mongodb://localhost:27017')
     const coinCollection = db.collection('coins');
     const variableCollection = db.collection('variables');
     const experimentCollection = db.collection('experiments');
+    const badgeCollection = db.collection('badges');
 
     const userRouter = createRouter(userCollection);
     const showRouter = createRouter(showCollection);
     const coinRouter = createRouter(coinCollection);
     const variableRouter = createRouter(variableCollection);
     const experimentRouter = createRouter(experimentCollection);
+    const badgeRouter = createRouter(badgeCollection);
 
     app.use('/api/users', userRouter);
     app.use('/api/shows', showRouter);
     app.use('/api/coins', coinRouter);
     app.use('/api/variables', variableRouter);
     app.use('/api/experiments', experimentRouter);
+    app.use('/api/badges', badgeRouter);
   })
   .catch(console.error);
 
