@@ -22,9 +22,9 @@
       </v-layout>
 
       <v-layout class="d-flex flex-column align-center">
-        <h4 class="font-weight-bold mb-3">Important Links</h4>
+        <h4 class="font-weight-bold mb-3">Shows</h4>
           <a
-            v-for="(link, i) in importantLinks"
+            v-for="(link, i) in showLinks"
             :key="i"
             :href="link.href"
             class="subheading mx-3"
@@ -65,27 +65,15 @@ export default {
         href: 'https://github.com/vuetifyjs/awesome-vuetify',
       },
     ],
-    importantLinks: [
+    showLinks: [
       {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com',
+        text: 'View All Shows',
+        href: '/shows/view',
       },
       {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
+        text: 'Add New Show',
+        href: '/shows/add',
+      }
     ],
     whatsNext: [
       {
