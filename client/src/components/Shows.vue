@@ -8,7 +8,7 @@
       wrap
     >
 
-      <router-view :shows="shows"/>
+      <router-view />
     </v-layout>
   </v-container>
 </template>
@@ -21,13 +21,14 @@ export default {
   data(){
     return{
     shows:[]}
-  },
-
-  mounted(){
-  fetch("http://localhost:3000/api/shows")
-    .then(response => response.json())
-    .then(json => this.shows = json);
   }
+  // ,
+  //
+  // mounted(){
+  // fetch("http://localhost:3000/api/shows")
+  //   .then(response => response.json())
+  //   .then(json => this.shows = json);
+  // }
 }
 </script>
 

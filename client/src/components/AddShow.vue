@@ -62,7 +62,7 @@
       <v-col cols=3>end time</v-col>
       <v-col cols=1>
         <v-select
-          v-model="this.endhr"
+          v-model="endhr"
           :items="time1"
           label="hr"
           dense
@@ -72,7 +72,7 @@
       <v-col cols=1>:</v-col>
       <v-col cols=1>
         <v-select
-          v-model="this.endmin"
+          v-model="endmin"
           dense
           :items="time2"
           label="min"
@@ -177,6 +177,8 @@ export default {
         coins: [],
         badges: [],
         reviews: [],
+        // startTime: "",
+        // endTime: ""
       },
       genres: ['comedy', 'theatre', 'physical'],
       acts: ['act1', 'act2', 'act3'],
