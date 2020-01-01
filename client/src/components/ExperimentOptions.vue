@@ -150,7 +150,7 @@ export default {
   },
 
   mounted(){
-  fetch("http://localhost:3000/api/variables")
+  fetch("http://localhost:3000/api/shows")
     .then(response => response.json())
     .then(json => this.shows = json);
   }

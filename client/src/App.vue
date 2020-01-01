@@ -45,14 +45,28 @@
       <span class="mr-2"><router-link to="/">Home</router-link></span>
       </v-btn>
 
-      <v-btn
+      <v-menu bottom left>
+            <template v-slot:activator="{ on }">
+              <v-btn
+              v-on="on"
+              text
+              color="reply orange"
+              >
+              <span class="mr-2">Shows</span>
+              </v-btn>
+            </template>
 
-      text
-      color="reply orange"
-      >
-      <span class="mr-2">
-      <router-link to="/add-show">add Show</router-link></span>
-      </v-btn>
+            <v-list>
+              <v-list-item
+                v-for="(item, i) in showLinks"
+                :key="i"
+                @click=""
+              >
+                <v-list-item-title><span class="mr-2">
+                <router-link :to="item.link">{{ item.title }}</router-link></span></v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
 
       <!-- <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
@@ -86,6 +100,11 @@ export default {
   },
 
   data: () => ({
+    showLinks: [
+      { title: 'Add', link: 'shows/add' },
+      // { title: 'Edit', link: 'shows/add' },
+      { title: 'View All', link: 'shows' },
+    ],
     // users: [],
     // coins: [],
     // variables: [],

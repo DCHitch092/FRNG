@@ -13,6 +13,7 @@ import Account from './components/AccountView';
 import Shows from './components/Shows';
 import AddShow from './components/AddShow';
 import ViewShows from './components/ViewShows';
+import colors from 'vuetify/es5/util/colors';
 
 
 const VariablesSetUp = { template: '<div>foo</div>' }
@@ -26,10 +27,10 @@ const routes = [
   },
   {
     path: '/shows',
-    name: '',
+    name: 'shows-route',
     component: Shows,
     children: [
-      { path: '/add',
+      { path: 'add',
         name: 'add-show',
         component: AddShow
       },
@@ -53,12 +54,15 @@ new Vue({
   vuetify,
   theme: {
     themes: {
-      light: {
-        primary: '#3f51b5',
-        secondary: '#b0bec5',
-        accent: '#8c9eff',
-        error: '#b71c1c',
-      },
+      // light: {
+      //   primary: colors.amber.base,
+      //   secondary: colors.orange.base,
+      //   accent: colors.light-blue.base,
+      //   error: colors.deep-orange.base,
+      //   warning: colors.blue-grey.base,
+      //   info: colors.lime.base,
+      //   success: colors.light-green.base
+      // },
     },
   },
   router,

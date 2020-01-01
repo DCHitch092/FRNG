@@ -1,9 +1,9 @@
 <template lang="html">
   <v-flex
-  class="d-flex justify-center align-center flex-wrap"
+  class="d-flex justify-center align-center flex-wrap light"
   >
     <div class="flex-columns">
-      <h3 class="experiment_option_display">£{{variables.coin_buy}}</h3>
+      <h3 class="experiment_option_display amber lighten-2">£{{variables.coin_buy}}</h3>
       <v-icon>mdi-coins</v-icon>
     </div>
 

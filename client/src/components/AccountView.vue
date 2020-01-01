@@ -1,5 +1,7 @@
 <template lang="html">
-
+  <v-layout>
+    This is the account view
+  </v-layout>
 </template>
 
 <script>

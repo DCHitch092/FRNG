@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-expansion-panel>
+  <v-expansion-panel :shows="shows">
     <v-expansion-panel-header
 
     color="amber darken-1"><h2>Shows</h2></v-expansion-panel-header>
@@ -11,7 +11,7 @@
   <template v-slot:default="props">
     <v-row>
       <v-col
-        v-for="show in shows"
+        v-for="show in items"
         :key="show.title"
         cols="12"
         sm="6"
@@ -65,7 +65,8 @@ export default {
 
   data(){
     return{
-    shows:[]}
+    shows:[]
+  }
   },
 
   mounted(){

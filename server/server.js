@@ -19,6 +19,7 @@ MongoClient.connect('mongodb://localhost:27017')
     const variableCollection = db.collection('variables');
     const experimentCollection = db.collection('experiments');
     const badgeCollection = db.collection('badges');
+    const venueCollection = db.collection('venues');
 
     const userRouter = createRouter(userCollection);
     const showRouter = createRouter(showCollection);
@@ -26,6 +27,7 @@ MongoClient.connect('mongodb://localhost:27017')
     const variableRouter = createRouter(variableCollection);
     const experimentRouter = createRouter(experimentCollection);
     const badgeRouter = createRouter(badgeCollection);
+    const venueRouter = createRouter(venueCollection);
 
     app.use('/api/users', userRouter);
     app.use('/api/shows', showRouter);
@@ -33,6 +35,7 @@ MongoClient.connect('mongodb://localhost:27017')
     app.use('/api/variables', variableRouter);
     app.use('/api/experiments', experimentRouter);
     app.use('/api/badges', badgeRouter);
+    app.use('/api/venues', venueRouter);
   })
   .catch(console.error);
 
