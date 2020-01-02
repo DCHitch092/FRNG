@@ -1,7 +1,19 @@
 <template lang="html">
 <v-layout>
-
-  {{ this.show ? this.show : 'sorry, there is no show to er... show'}}
+  <v-row justify="space-around">
+    <v-col cols="12">
+      <!-- {{ !this.show ? 'sorry, there is no show to er... show' : }} -->
+      <h1>  {{ this.show.title }} <router-link to:>(edit)</router-link></h1>
+    </v-col>
+    <v-col cols=4>
+      <h2> {{ this.show.act }} </h2>
+    </v-col>
+      <p> {{ this.show.startTime }}</p>
+      <p> {{ this.show.duration }}</p>
+      <p> {{ this.show.genre }}</p>
+      <!-- <a href={ this.show.links.facebook } ><v-img> {{ this.show.links.facebook }}</v-img></a> -->
+    </v-col>
+  </v-row>
 </v-layout>
 </template>
 
@@ -11,7 +23,7 @@ export default {
 
   data() {
     return {
-      show: null
+      show: ''
     }
   },
 

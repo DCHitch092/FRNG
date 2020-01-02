@@ -5,71 +5,18 @@
       <h2>Shows</h2>
     </v-expansion-panel-header>
     <v-expansion-panel-content>
-      <v-data-iterator
-      :items="shows"
-      >
-        <template v-slot:default="props">
-          <v-row>
-            <v-col
-              v-for="show in props.items"
-              :key="show.title"
-              cols="12"
-              sm="6"
-              md="4"
-              lg="3"
-            >
-              <v-card>
-                <v-card-title class="">
-                  <router-link
-                  :to="{
-                    name: 'view-show',
-                    params: {
-                      id:show._id}
-                      }">
-                      <h3>{{ show.title }}</h3>
-                    </router-link >
-                </v-card-title>
+      <v-slider
+      v-model="numberOfShows"
+      min=0
+      step=1
+      :max="possibleAmountOfShows"
+      label="Number of Shows"
+      hint="This is the number of shows this experiment will use to project how frng coin might be used"
+      ></v-slider>
 
-                <v-divider></v-divider>
-
-                <v-list dense>
-                  <v-list-item>
-                    <v-list-item-content>{{ show.act }}</v-list-item-content>
-                  </v-list-item>
-
-                  <v-list-item>
-                    <v-list-item-content>{{ show.startTime }}</v-list-item-content>
-                  </v-list-item>
-                  <!-- <v-list-item>
-                    <v-list-item-content>Title:</v-list-item-content>
-                    <v-list-item-content class="align-end">{{ show.title }}</v-list-item-content>
-                  </v-list-item> -->
-
-                  <!-- <v-list-item>
-                    <v-list-item-content><p>Coins:</p></v-list-item-content>
-                    <v-list-item-content class="align-end"><p>{{ show.coins.length }}</p></v-list-item-content>
-                  </v-list-item>
-
-                  <v-list-item>
-                    <v-list-item-content><p>Contributors:</p></v-list-item-content>
-                    <v-list-item-content class="align-end"><p>{{ show.contributors.length }}</p></v-list-item-content>
-                  </v-list-item> -->
-
-                </v-list>
-                <!-- <v-fade-transition> -->
-                <!-- <v-overlay
-
-                  absolute
-                  color="#036358"
-                >
-                  <v-btn>See more info</v-btn>
-                </v-overlay> -->
-              <!-- </v-fade-transition> -->
-              </v-card>
-            </v-col>
-          </v-row>
-        </template>
-      </v-data-iterator>
+      <span class="align-left"><v-icon v-for="items of numberOfShows">mdi-rectangle</v-icon>
+      {{ numberOfShows }} show(s) or {{ percentageShowsUsed}}%
+    </span>
     </v-expansion-panel-content>
   </v-expansion-panel>
 
@@ -81,8 +28,19 @@ export default {
 
   data(){
     return{
+    numberOfShows: 1,
     shows:[]
     }
+  },
+
+  computed: {
+    possibleAmountOfShows: function() {
+      return this.shows.length
+    },
+    percentageShowsUsed: function(){
+      return Math.round(this.numberOfShows/this.possibleAmountOfShows*100)
+    }
+
   },
 
   mounted(){

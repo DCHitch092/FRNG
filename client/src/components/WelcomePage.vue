@@ -27,6 +27,7 @@
     >
     <experiment-options :variables="variables" />
     <experiment-shows />
+    <experiment-users />
     </v-expansion-panels>
 
     </v-layout>
@@ -36,6 +37,7 @@
 <script>
 import ExperimentOptions from './ExperimentOptions.vue';
 import ExperimentShows from './ExperimentShows.vue';
+import ExperimentUsers from './ExperimentUsers.vue';
 import DisplayVariables from './DisplayVariables.vue';
 import { eventBus } from '../main.js'
 
@@ -45,22 +47,24 @@ export default {
   data(){
     return {
       variables: {
-    name: 'type a name here',
-    coin_buy: 5,
-    start_value: 5,
-    decay_rate: 0.1,
-    access_info_cost: 0.1,
-    deposit_cost:0.2,
-    advert_cost:0.3,
-    advert_plus_cost: 10,
-    total_days: 26,
-    review_system: false
+        variable_type: 'variable_set',
+        name: 'type a name here',
+        coin_buy: 5,
+        start_value: 5,
+        decay_rate: 0.1,
+        access_info_cost: 0.1,
+        deposit_cost:0.2,
+        advert_cost:0.3,
+        advert_plus_cost: 10,
+        total_days: 26,
+        review_system: false
       }
     }
   },
 
   components:{
     'experiment-options': ExperimentOptions,
+    'experiment-users': ExperimentUsers,
     'experiment-shows': ExperimentShows,
     'display-variables': DisplayVariables
   }

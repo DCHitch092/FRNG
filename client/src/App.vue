@@ -101,9 +101,13 @@ export default {
 
   data: () => ({
     showLinks: [
-      { title: 'Add', link: 'shows/add' },
+      {
+        title: 'Add',
+        link: 'shows/add' },
       // { title: 'Edit', link: 'shows/add' },
-      { title: 'View All', link: 'shows' },
+      {
+        title: 'View All',
+        link: 'shows'},
     ],
     // users: [],
     // coins: [],

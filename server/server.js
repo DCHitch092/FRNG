@@ -1,8 +1,12 @@
+"use strict";
+
 const express = require('express');
 const app = express();
 const cors = require("cors");
 const parser = require("body-parser")
 const path = require('path');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router.js');
 
@@ -20,6 +24,7 @@ MongoClient.connect('mongodb://localhost:27017')
     const experimentCollection = db.collection('experiments');
     const badgeCollection = db.collection('badges');
     const venueCollection = db.collection('venues');
+    const userClassesCollection = db.collection('user_classes');
 
     const userRouter = createRouter(userCollection);
     const showRouter = createRouter(showCollection);
@@ -28,6 +33,7 @@ MongoClient.connect('mongodb://localhost:27017')
     const experimentRouter = createRouter(experimentCollection);
     const badgeRouter = createRouter(badgeCollection);
     const venueRouter = createRouter(venueCollection);
+    const userClassesRouter = createRouter(userClassesCollection);
 
     app.use('/api/users', userRouter);
     app.use('/api/shows', showRouter);
@@ -36,6 +42,7 @@ MongoClient.connect('mongodb://localhost:27017')
     app.use('/api/experiments', experimentRouter);
     app.use('/api/badges', badgeRouter);
     app.use('/api/venues', venueRouter);
+    app.use('/api/user_classes', userClassesRouter)
   })
   .catch(console.error);
 

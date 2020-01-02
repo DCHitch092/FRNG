@@ -12,6 +12,7 @@ import WelcomePage from './components/WelcomePage';
 import Account from './components/AccountView';
 import Shows from './components/Shows';
 import AddShow from './components/AddShow';
+import AllShows from './components/AllShows';
 import ViewShow from './components/ViewShows';
 import colors from 'vuetify/es5/util/colors';
 
@@ -27,9 +28,13 @@ const routes = [
   },
   {
     path: '/shows',
-    name: 'shows-route',
+    name: '',
     component: Shows,
     children: [
+      { path: '/',
+        name: 'all-shows',
+        component: AllShows
+      },
       { path: 'add',
         name: 'add-show',
         component: AddShow
