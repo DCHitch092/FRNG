@@ -58,8 +58,27 @@ export default {
         advert_plus_cost: 10,
         total_days: 26,
         review_system: false
+      },
+      experiment:{
+        selectedUserTypes:[]
       }
     }
+  },
+
+  methods:{
+    selectUserTypes: function(userType){
+      this.experiment.selectedUserTypes.push(userType)
+    },
+    deselectUserTypes: function(userType){
+      const index = this.experiment.selectedUserTypes.indexOf(userType)
+      this.experiment.selectedUserTypes.splice(index, 1)
+    }
+
+  },
+
+  mounted() {
+  eventBus.$on('add-user-class', (data) => this.selectUserTypes(data))
+  eventBus.$on('remove-user-class', (data) => this.deselectUserTypes(data))
   },
 
   components:{
